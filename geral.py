@@ -48,7 +48,6 @@ class funcionario(pessoa):
                 print('pessoas\n')
                 for funcionario in lista_funcionarios:
                     print(funcionario['name'])
-            print('-' * 20)
         except:
             print('Não encontrado!')
             menu_principal()
@@ -80,14 +79,13 @@ class coordenador_adm(funcionario):
                 print('pessoas\n')
                 for funcionario in lista_funcionarios:
                     print(funcionario['name'])
-            print('-' * 20)
         except:
             print('Não encontrado!')
             menu_principal()
 
 
-    def calcularPlusSalario(self):
-        pass
+    #def calcularPlusSalario(self):
+
 
 
 class aluno(pessoa):
@@ -111,11 +109,9 @@ class aluno(pessoa):
                 pessoas = pickle.dumps(novos_alunos)
                 dados_pessoas.write(aluno)
 
-    def exibir_alunos(self):
-        pass
+    #def exibir_alunos(self):
+    #def exibir_aluno_por_matricula(self, matricula):
 
-    def exibir_aluno_por_matricula(self, matricula):
-        pass
 
 
 class professor():
@@ -146,7 +142,7 @@ class professor():
                 print('pessoas\n')
                 for professor in lista_professores:
                     print(professor['nome'])
-            print('-' * 20)
+                    
         except:
             print('Não encontrado!')
             menu_principal()
@@ -157,14 +153,9 @@ class coordenador_professor(professor):
         self.__area = area
         self.__plusSalario = plusSalario
 
-    def cadastrar_coordenadoraprofessor(self):
-        pass
-
-    def exibir_coordenadorprofessor(self):
-        pass
-
-    def calcularPlusSalario(self):
-        pass
+    #def cadastrar_coordenadoraprofessor(self):
+    #def exibir_coordenadorprofessor(self):
+    #def calcularPlusSalario(self):
 
 
 class matricula:
@@ -183,12 +174,6 @@ class curso:
         self.matricula = matricula
         self.professor = professor
 
-    def cadastrar_curso(self):
-        pass
-
-    def exibir_cursos(self):
-        pass
-
-    def calcular_minimo_alunos(self):
-        pass
-
+    #def cadastrar_curso(self):
+    #def exibir_cursos(self):
+    #def calcular_minimo_alunos(self):
