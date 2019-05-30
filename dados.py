@@ -5,9 +5,9 @@ def coletar_informacoes():
     nome = str(input('Nome: '))
     rg = int(input('Rg:'))
     cpf = int(input('cpf: '))
-    anoNasc = int(input('anoNasc: '))
-    mesNasc = input('mesNasc: ')
-    diaNasc = input('Dia_Nascimento: ')
+    anoNasc = int(input('ano de nascimento: '))
+    mesNasc = input('mes de nascimento: ')
+    diaNasc = input('dia de nascimento: ')
 
     dados = dict(name=nome, rg=rg, cpf=cpf, anoNasc=anoNasc, mesNasc=mesNasc, diaNasc=diaNasc)
 
