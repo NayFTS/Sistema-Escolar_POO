@@ -37,5 +37,5 @@ def menu_principal():
         else:
             print("Opção inválida!\n")
 
-print(menu_principal())
+menu_principal()
 
