@@ -3,9 +3,8 @@ import geral
 import pickle
 
 def menu_principal():
-    print(20 * "-=")
-    print("       Menu")
-    print(20 * "-=")
+    print("MENU")
+
 
     print("--------------------\n"
           "1 - Cadastrar Pessoas\n"
@@ -16,11 +15,16 @@ def menu_principal():
     while True:
         escolha = int(input("Escolha a opção desejada: "))
         if escolha == 1:
-            print('1 - Casdastrar Funcionario\n'
-                  '2 - Cadastrar Aluno\n')
+            print('-------------------\n1 - Casdastrar Funcionario\n'
+                  '2 - Cadastrar Aluno\n'
+                  '3- Cadastrar Professor\n', '-------------------\n')
             escolha1 = int(input('Escolha qual deseja cadastrar:'))
             if escolha1 == 1:
                 geral.funcionario.cadastrar_funcionario()
+            if escolha1 == 2:
+                geral.aluno.cadastrar_aluno()
+            if escolha1 == 3:
+                geral.professor.cadastrar_professor()
         elif escolha == 2:
             print('1 - Listar Funcionario\n'
                   '2 - Listar Aluno\n')
@@ -34,3 +38,4 @@ def menu_principal():
             print("Opção inválida!\n")
 
 print(menu_principal())
+
