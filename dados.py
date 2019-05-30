@@ -1,5 +1,5 @@
 import pickle
-
+import geral
 
 def coletar_informacoes():
     nome = str(input('Nome: '))
@@ -7,9 +7,9 @@ def coletar_informacoes():
     cpf = int(input('cpf: '))
     anoNasc = int(input('anoNasc: '))
     mesNasc = input('mesNasc: ')
-    dia_nascimento = input('Dia_Nascimento: ')
+    diaNasc = input('Dia_Nascimento: ')
 
-    dados = dict(name=nome, rg=rg, cpf=cpf, anoNasc=anoNasc, mesNasc=mesNasc, dia_nascimento=dia_nascimento)
+    dados = dict(name=nome, rg=rg, cpf=cpf, anoNasc=anoNasc, mesNasc=mesNasc, diaNasc=diaNasc)
 
     return dados
 
@@ -40,3 +40,9 @@ def listar_pessoas():
     except:
         print('Não encontrado!')
         menu_principal()
+
+def salario(funcionario):
+    if geral.funcionario(nivel) == 'A':
+        salario = 1520.25
+    elif geral.funcionario(nivel) == 'B':
+        salario = 2362.67
