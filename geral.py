@@ -11,7 +11,6 @@ class pessoa:
         self._sexo = sexo
 
     def __new__(cls, *args, **kwargs):
-        """previne a classe de ser instanciada diretamente"""
         if cls is pessoa:
             raise TypeError("classe não pode ser instanciada.")
         return object.__new__(cls, *args, **kwargs)
