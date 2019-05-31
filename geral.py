@@ -1,5 +1,6 @@
 import dados
 import pickle
+
 class pessoa:
     def __init__(self, nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo):
         self._nome = nome
@@ -15,165 +16,38 @@ class pessoa:
             raise TypeError("classe não pode ser instanciada.")
         return object.__new__(cls, *args, **kwargs)
 
-    def __str__(self):
-        return f'{self._nome}; RG: {self._rg}'
-
 
 class funcionario(pessoa):
-    def __init__(self):
-        super().coletar_dados(nome, rg, cpf, anoNasc, mesNasc, diaNasc)
+    def __init__(self, nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo, matricula, setor, cargo):
+        super().__init__(nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo)
         self._matricula = matricula
         self._setor = setor
         self._cargo = cargo
         self._nivel = nivel
+        Funcionario = [str(input('Nome:')), str(input('RG:')), str(input('CPF:')),
+                       int(input('Ano de Nascimento')), int(input('Mes de Nascimento')),
+                       int(input('Dia de Nascimento')), str(input('Sexo:')),
+                    int(input('matricula')), str(input('setor')), str(input('cargo')),
+                    int(input('nivel'))]
 
-    def cadastrar_funcionario():
-        try:
-            with open('dados_pessoas') as pessoas:
-                antigos_funcionarios = pickle.load(pessoas)
-            with open('dados_pessoas', mode='wb') as dados_pessoas:
-                antigos_funcionarios.append(coletar_informacoes())
-                novos_funcionarios = pickle.dumps(antigos_funcionarios)
-                dados_funcionarios.write(novos_funcionarios)
-        except:
-            with open('dados_pessoas', mode='wb') as dados_pessoas:
-                novos_funcionarios = [dados.cadastrar_pessoas()]
-                pessoas = pickle.dumps(novos_funcionarios)
-                dados_funcionarios.write(pessoas)
 
+    def cadastrar_funcionario(Funcionario):
+        pass
     def exibir_funcionario(self):
-        try:
-            with open('dados_pessoas', mode='rb') as dados_pessoas:
-                lista_funcionarios = pickle.load(dados_pessoas)
-                print('pessoas\n')
-                for funcionario in lista_funcionarios:
-                    print(funcionario['name'])
-        except:
-            print('Não encontrado!')
-            menu_principal()
+        pass
 
+    def salario(self):
+        self.salarioBruto = ''
+        self.salarioLiquido = ''
+        self.inss = ''
+        self.irff = ''
+        self.planoSaude = ''
 
-class coordenador_adm(funcionario):
-    def __init__(self):
-        self.__area = area
-        self.__plusSalario = plusSalario
+    def calcularSalario(self):
+        pass
 
-    def cadastrar_coordenadoradm(self):
-        try:
-            with open('dados_pessoas') as pessoas:
-                antigos_funcionarios = pickle.load(pessoas)
-            with open('dados_pessoas', mode='wb') as dados_pessoas:
-                antigos_funcionarios.append(coletar_informacoes())
-                novos_funcionarios = pickle.dumps(antigos_funcionarios)
-                dados_funcionarios.write(novos_funcionarios)
-        except:
-            with open('dados_pessoas', mode='wb') as dados_pessoas:
-                novos_funcionarios = [dados.cadastrar_pessoas()]
-                pessoas = pickle.dumps(novos_funcionarios)
-                dados_funcionarios.write(pessoas)
-
-    def exibir_coordenadoradm(self):
-        try:
-            with open('dados_pessoas', mode='rb') as dados_pessoas:
-                lista_funcionarios = pickle.load(dados_pessoas)
-                print('pessoas\n')
-                for funcionario in lista_funcionarios:
-                    print(funcionario['name'])
-        except:
-            print('Não encontrado!')
-            menu_principal()
-
-
-    #def calcularPlusSalario(self):
-
-
-
-class aluno(pessoa):
-    def __init__(self):
-        self._codigo = codigo
-        self._interesse = interesse
-        self._desconto = desconto
-        self.matricula = matricula
-
-    def cadastrar_aluno():
-        try:
-            with open('dados_pessoas') as pessoas:
-                antigos_alunos = pickle.load(pessoas)
-            with open('dados_pessoas', mode='wb') as dados_pessoas:
-                antigos_alunos.append(coletar_informacoes())
-                novos_alunos = pickle.dumps(antigos_alunos)
-                dados_alunos.write(novos_alunos)
-        except:
-            with open('dados_pessoas', mode='wb') as dados_pessoas:
-                novos_alunos = [coletar_informacoes()]
-                pessoas = pickle.dumps(novos_alunos)
-                dados_pessoas.write(aluno)
-
-    #def exibir_alunos(self):
-    #def exibir_aluno_por_matricula(self, matricula):
-
-
-
-class professor():
-    def __init__(self):
-        super.col
-        self.formacao = formacao
-        self.nivel = nivel
-        self.disciplina = disciplina
-
-    def cadastrar_professor():
-        try:
-            with open('dados_pessoas') as pessoas:
-                antigos_professores = pickle.load(pessoas)
-            with open('dados_pessoas', mode='wb') as dados_pessoas:
-                antigos_professores.append(coletar_informacoes())
-                novos_professores = pickle.dumps(antigos_fprofessores)
-                dados_professores.write(novos_professores)
-        except:
-            with open('dados_pessoas', mode='wb') as dados_pessoas:
-                novos_professores = [dados.cadastrar_pessoas()]
-                pessoas = pickle.dumps(novos_professores)
-                dados_professores.write(pessoas)
-
-    def exibir_professores(self):
-        try:
-            with open('dados_pessoas', mode='rb') as dados_pessoas:
-                lista_professores = pickle.load(dados_pessoas)
-                print('pessoas\n')
-                for professor in lista_professores:
-                    print(professor['nome'])
-                    
-        except:
-            print('Não encontrado!')
-            menu_principal()
-
-
-class coordenador_professor(professor):
-    def __init__(self):
-        self.__area = area
-        self.__plusSalario = plusSalario
-
-    #def cadastrar_coordenadoraprofessor(self):
-    #def exibir_coordenadorprofessor(self):
-    #def calcularPlusSalario(self):
-
-
-class matricula:
-    def __init__(self):
-        self.id = id
-        self.mesMatricula = mesMatricula
-        self.anoMatricula = anoMatricula
-
-
-class curso:
-    def __init__(self):
-        self.titulo = titulo
-        self.descricao = descricao
-        self.valor = valor
-        self.sala = sala
-        self.matricula = matricula
-        self.professor = professor
-
-    #def cadastrar_curso(self):
-    #def exibir_cursos(self):
-    #def calcular_minimo_alunos(self):
+class coordenadorAdmin(funcionario):
+    def __init__(self, nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo, matricula, setor, cargo, area, plusSalario):
+        super().__init__(nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo, matricula, setor, cargo)
+        self.area = area
+        self.plusSalario = plusSalario
