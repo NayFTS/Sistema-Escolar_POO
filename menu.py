@@ -15,7 +15,7 @@ def menu_principal():
     while True:
         escolha = int(input("Escolha a opção desejada: "))
         if escolha == 1:
-            print('-------------------\n1 - Casdastrar Funcionario\n'
+            print('-------------------\n1 - Cadastrar Funcionario\n'
                   '2 - Cadastrar Aluno\n'
                   '3- Cadastrar Professor\n', '-------------------\n')
             escolha1 = int(input('Escolha qual deseja cadastrar:'))
@@ -38,4 +38,3 @@ def menu_principal():
             print("Opção inválida!\n")
 
 menu_principal()
-
