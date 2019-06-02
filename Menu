@@ -1,0 +1,58 @@
+from Classes import *
+import pickle
+while True:
+    print('======================')
+    print('        Menu')
+    print('======================')
+
+    print('1 - Cadastrar\n'
+          '2 - Exibir\n'
+          '3 - sair\n')
+
+    escolha = int(input('Selecione a função desejada:'))
+    if escolha == 1:
+        print('1 - Cadastro de Aluno\n'
+              '2 - Cadastro de Funcionario\n'
+              '3 - cadastro de Professor\n'
+              '4 - Cadastro de Coordenador Administrativo\n'
+              '5 - Cadastro de Coordenador\n')
+        escolhaCadastro = int(input('Seleciona qual categoria deseja cadastrar:'))
+        if escolhaCadastro == 1:
+            aluno = Aluno(str(input('Nome: ')), int(input('Rg:')), int(input('cpf: ')), int(input('ano de nascimento: ')),int(input('mes de nascimento: ')), int(input('dia de nascimento: ')), str(input('sexo:')), int(input('Codigo:')), str(input('Interesse:')), float(input('Desconto:')))
+            aluno_file = open('pastaAluno', 'wb')
+            pickle.dump(aluno, aluno_file, 3)
+            print('Cadastro concluido')
+        elif escolhaCadastro == 2:
+            funcionario = Funcionario(str(input('Nome: ')), int(input('Rg:')), int(input('cpf: ')), int(input('ano de nascimento: ')),int(input('mes de nascimento: ')), int(input('dia de nascimento: ')), str(input('sexo:')), int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), int(input('Nivel:')))
+            funcionario_file = open('pastaFuncionario', 'wb')
+            pickle.dump(funcionario, funcionario_file, 3)
+            print('Cadastro concluido')
+        elif escolhaCadastro == 3:
+            professor = Professor(str(input('Nome: ')), int(input('Rg:')), int(input('cpf: ')), int(input('ano de nascimento: ')),int(input('mes de nascimento: ')), int(input('dia de nascimento: ')), str(input('sexo:')),
+            int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), int(input('Nivel:')),str(input('Formação:')), str(input('Nivel: I, II ou III')), str(input('Disciplina:')))
+            professor_file = open('pastaProfessor', 'wb')
+            pickle.dump(professor, professor_file, 3)
+            print('Cadastro concluido')
+        elif escolhaCadastro == 4:
+            coordenadorAdmin = CoordenadorAdmin(str(input('Nome: ')), int(input('Rg:')), int(input('cpf: ')), int(input('ano de nascimento: ')),int(input('mes de nascimento: ')), int(input('dia de nascimento: ')), str(input('sexo:')),
+            int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), int(input('Nivel:')), str(input('Área:')), float(input('Plus Salario:')))
+            coordenadorAdmin_file = open('pastaCoordenadorAdmin', 'wb')
+            pickle.dump(coordenadorAdmin, coordenadorAdmin_file, 3)
+            print('Cadastro concluido')
+        elif escolhaCadastro == 5:
+            coordenador = Coordenador(str(input('Nome: ')), int(input('Rg:')), int(input('cpf: ')), int(input('ano de nascimento: ')),int(input('mes de nascimento: ')), int(input('dia de nascimento: ')), str(input('sexo:')),
+            int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), int(input('Nivel:')),str(input('Formação:')), str(input('Nivel:')), str(input('Disciplina:')), str(input('Área:')), float(input('Plus Salario:')))
+            coordenador_file = open('pastaCoordenador', 'wb')
+            pickle.dump(coordenador, coordenador_file, 3)
+            print('Cadastro concluido')
+
+
+    elif escolha == 2:
+        print('1 - Exibir Alunos')
+        escolhaExibir = int(input('Selecione a categoria que deseja exibir:'))
+        if escolhaExibir == 1:
+           aluno_file = open('pastaAluno', 'wb')
+           pickle.load(aluno_file)
+
+    elif escolha == 3:
+        break
