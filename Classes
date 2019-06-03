@@ -1,4 +1,4 @@
-import pickle
+iimport pickle
 import Info
 
 class Pessoa:
@@ -48,17 +48,23 @@ class Curso:
     def exibirCurso(self):
         pass
     def calcularNumMinAluno(self):
-        pass
+        if self.professor.exibirProfessor()['nivel'] == '1':
+            custoCurso = round((6500.00 / self.valor))
+        elif self.professor.exibir()['nivel'] == '2':
+            custoCurso = round((8325.00 / self.valor))
+        elif self.professor.exibir()['nivel'] == '3':
+            custoCurso = round((12568.43 / self.valor))
+        return custoCurso
 
 
 class Funcionario(Pessoa):
-    def __init__(self,nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo, matricula, setor, cargo, nivel, salario):
+    def __init__(self,nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo, matricula, setor, cargo, nivel):
         super().__init__(nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo)
         self.matricula = matricula
         self.setor = setor
         self.cargo = cargo
         self.nivel = nivel
-        self.salario = salario(self.nivel)
+        self.salario = Info.Salario.calcular_salario()
 
     def atribuirSalario(self):
         return self.salario
@@ -82,12 +88,12 @@ class CoordenadorAdmin(Funcionario):
         return self.plusSalario
 
 class Professor(Funcionario):
-    def __init__(self, nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo, matricula, setor, cargo, nivel, formacao, nivel, disciplina, salario):
+    def __init__(self, nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo, matricula, setor, cargo, nivel, formacao, disciplina, salario):
         super().__init__(nome, rg, cpf, anoNasc, mesNasc, diaNasc, sexo, matricula, setor, cargo, nivel)
         self.formacao = formacao
         self.nivel = nivel
         self.disciplina = disciplina
-        self.salario = salario(self.nivel)
+        self.salario = Info.Salario.calcular_salario()
         self.curso = Curso
 
     def atribuirSalario(self):
@@ -112,5 +118,6 @@ class Coordenador(Professor):
 
     def calcularPlusSalario(self):
         return self.plusSalario
+
 
 
