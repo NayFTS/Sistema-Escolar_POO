@@ -1,4 +1,4 @@
-class salario():
+class Salario:
 
     def __init__(self, nivel):
         self.salarioBruto = self._calc_salario_por_nivel(nivel)
@@ -24,12 +24,12 @@ class salario():
             salarioBruto = 4878.67
         if nivel == 'I':
             salarioBruto = 6500.0
-        if nivelp == 'II':
+        if nivel == 'II':
             salarioBruto = 8325.50
         if nivel == 'III':
-            salarioBbruto = 12568.43
+            salarioBruto = 12568.43
 
-        return (salarioBruto, 2)
+        return round(salarioBruto, 2)
 
     def _calc_inss(self, salarioBruto):
         inss = 0.0
@@ -40,7 +40,7 @@ class salario():
         elif salarioBruto >= 2919.73 and salarioBruto <= 5839.45:
             inss = salarioBruto * 0.11
 
-        return (inss, 2)
+        return round(inss, 2)
 
     def _calc_irrf(self, salarioBruto):
         irrf = 0.0
@@ -52,9 +52,5 @@ class salario():
             irrf = salarioBruto * 0.225
         elif salarioBruto > 4664.68:
             irrf = salarioBruto * 0.275
-        return (irrf, 2)
-
-
-
-
+        return round(irrf, 2)
 
