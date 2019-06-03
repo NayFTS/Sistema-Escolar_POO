@@ -1,70 +1,59 @@
-import Classes
+class salario():
 
-class Salario():
-    def __init__(self, salarioBruto, salarioLiquido, inss, irrf, planoSaude,funcionario):
-        self.salarioBruto = salarioBruto
-        self.salarioLiquido = salarioLiquido
-        self.inss = inss
-        self.irrf = irrf
-        self.planoSaude = planoSaude
-        self.funcionario = funcionario
+    def __init__(self, nivel):
+        self.salarioBruto = self._calc_salario_por_nivel(nivel)
+        self.salarioLiquido = self.salarioBruto - (self.inss + self.irrf + self.planoSaude)
+        self.inss = self._calc_inss(self.salarioBruto)
+        self.irrf = self._calc_irrf(self.salarioBruto)
+        self.planoSaude = 125.0
 
-    def calcularSalario(self, cargo):
-        if cargo == 'A':
+    def calcular_salario(self):
+        return self.salarioLiquido
+
+    def _calc_salario_por_nivel(self, nivel):
+        salarioBruto = 0.0
+        if nivel == 'A':
             salarioBruto = 1520.25
-        elif cargo == 'B':
+        if nivel == 'B':
             salarioBruto = 2362.67
-        elif cargo == 'C':
+        if nivel == 'C':
             salarioBruto = 2988.92
-        elif cargo == 'D':
+        if nivel == 'D':
             salarioBruto = 3572.77
-        elif cargo == 'E':
+        if nivel == 'E':
             salarioBruto = 4878.67
+        if nivel == 'I':
+            salarioBruto = 6500.0
+        if nivelp == 'II':
+            salarioBruto = 8325.50
+        if nivel == 'III':
+            salarioBbruto = 12568.43
 
-    def inss1(self):
-        sb = self.calcularSalario()
-        if sb >= 0 and sb <= 1693.72:
-            inss = (sb * 0.08)
-        if sb >= 1693.73 and sb <= 2822.90:
-            inss = (sb * 0.09)
-        if sb >= 2822.91 and sb <= 5645.80:
-            inss = (sb * 0.11)
-        inss = ((inss * 100 + 0.5) / 100.0)
-        return inss
+        return (salarioBruto, 2)
 
-    def salario_com_contribuicao(self):
-        sb = self.salarioBruto
-        inss = self.inss1()
-        salCon = sb - inss
-        return (salCon)
+    def _calc_inss(self, salarioBruto):
+        inss = 0.0
+        if salarioBruto <= 1751.81:
+            inss = salarioBruto * 0.08
+        elif salarioBruto >= 1751.81 and salarioBruto <= 2919.72:
+            inss = salarioBruto * 0.09
+        elif salarioBruto >= 2919.73 and salarioBruto <= 5839.45:
+            inss = salarioBruto * 0.11
 
-    def irrf1(self):
-        atual = self.salario_com_contribuicao()
-        if (atual >= 0 and atual < 1903.99):
-            irrf = (atual * 0)
+        return (inss, 2)
 
-        if (atual > 1903.99 and atual < 2826.65):
-            irrf = (atual * 0.075) - 142.80
+    def _calc_irrf(self, salarioBruto):
+        irrf = 0.0
+        if salarioBruto >= 1903.99 and salarioBruto <= 2826.65:
+            irrf = salarioBruto * 0.075
+        elif salarioBruto >= 2826.66 and salarioBruto <= 3751.05:
+            irrf = salarioBruto * 0.15
+        elif salarioBruto >= 3751.06 and salarioBruto <= 4664.68:
+            irrf = salarioBruto * 0.225
+        elif salarioBruto > 4664.68:
+            irrf = salarioBruto * 0.275
+        return (irrf, 2)
 
-        if (atual > 2826.66 and atual < 3751.05):
-            irrf = (atual * 0.15) - 354.80
-
-        if (atual > 3751.06 and atual < 4664.68):
-            irrf = (atual * 0.225) - 636.13
-
-        if (atual > 4664.69):
-            irrf = (atual * 0.275) - 869.36
-        irrf = (irrf * 100 + 0.5) / 100.0
-        return irrf
-
-    def salarioliquido(self):
-        sb = self.salario_bruto
-        inss = self.inss1()
-        irrf = self.irrf1()
-        saLiq = (sb - inss - irrf)
-        return (saLiq)
-    def salarioFinal(self):
-        salarioLiquido(self) - 125.00
 
 
 
