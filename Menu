@@ -1,5 +1,6 @@
 from Classes import *
 import pickle
+import Info
 while True:
     print('======================')
     print('        Menu')
@@ -25,14 +26,14 @@ while True:
             aluno_file.close()
             print('Cadastro concluido')
         elif escolhaCadastro == 2:
-            funcionario = Funcionario(str(input('Nome: ')), int(input('Rg:')), int(input('cpf: ')), int(input('ano de nascimento: ')),int(input('mes de nascimento: ')), int(input('dia de nascimento: ')), str(input('sexo:')), int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), int(input('Nivel:')), Funcionario.atribuirSalario(self))
+            funcionario = Funcionario(str(input('Nome: ')), int(input('Rg:')), int(input('cpf: ')), int(input('ano de nascimento: ')),int(input('mes de nascimento: ')), int(input('dia de nascimento: ')), str(input('sexo:')), int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), str(input('Nivel: A, B, C, D ou E')), Funcionario.atribuirSalario())
             funcionario_file = open('pastaFuncionario', 'wb')
             pickle.dump(funcionario, funcionario_file, 3)
             funcionario_file.close()
             print('Cadastro concluido')
         elif escolhaCadastro == 3:
             professor = Professor(str(input('Nome: ')), int(input('Rg:')), int(input('cpf: ')), int(input('ano de nascimento: ')),int(input('mes de nascimento: ')), int(input('dia de nascimento: ')), str(input('sexo:')),
-            int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), int(input('Nivel:')),str(input('Formação:')), str(input('Nivel: I, II ou III:')), str(input('Disciplina:')), Professor.atribuirSalario())
+            int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), str(input('Nivel: I, II ou III:')),str(input('Formação:')), str(input('Disciplina:')), Professor.atribuirSalario())
             professor_file = open('pastaProfessor', 'wb')
             pickle.dump(professor, professor_file, 3)
             professor_file.close()
@@ -46,7 +47,7 @@ while True:
             print('Cadastro concluido')
         elif escolhaCadastro == 5:
             coordenador = Coordenador(str(input('Nome: ')), int(input('Rg:')), int(input('cpf: ')), int(input('ano de nascimento: ')),int(input('mes de nascimento: ')), int(input('dia de nascimento: ')), str(input('sexo:')),
-            int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), int(input('Nivel:')),str(input('Formação:')), str(input('Nivel:')), str(input('Disciplina:')), str(input('Área:')), float(input('Plus Salario:')))
+            int(input('Matricula:')), str(input('Setor:')), str(input('Cargo:')), str(input('Nivel: I, II ou III:')),str(input('Formação:')), str(input('Disciplina:')), str(input('Área:')), float(input('Plus Salario:')))
             coordenador_file = open('pastaCoordenador', 'wb')
             pickle.dump(coordenador, coordenador_file, 3)
             coordenador_file.close()
@@ -72,10 +73,10 @@ while True:
            pickle.load(professor_file)
         if escolhaExibir == 4:
            coordenadorAdmin_file = open('pastacoordenadorAdmin', 'wb')
-           pickle.load(coordenadorAdmin_file)  
+           pickle.load(coordenadorAdmin_file)
         if escolhaExibir == 5:
            coordenaddor_file = open('pastaCoordenador', 'wb')
-           pickle.load(aluno_file)
+           pickle.load(coordenador_file)
         if escolhaExibir == 6:
            curso_file = open('pastaCursos', 'wb')
            pickle.load(curso_file)
